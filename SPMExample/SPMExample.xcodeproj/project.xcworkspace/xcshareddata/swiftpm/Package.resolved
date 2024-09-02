@@ -1,13 +1,13 @@
 {
-  "originHash" : "ef7bb3e1c568cc0615f3df06609c29f53f5d6259efa2ea16a0cd55d1dc30001c",
+  "originHash" : "a2fcf144fae7e447bcd62e83667844126910eb355d6f302097551651ad04c06f",
   "pins" : [
     {
       "identity" : "rhea",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/reers/Rhea.git",
       "state" : {
-        "branch" : "feat/register_time_with_macro",
-        "revision" : "9dca51cd56fb97023d7ae0ab1f247c9584ba15a1"
+        "revision" : "3f14ab52cb6d54e87a3698d79bc7e12c5519739c",
+        "version" : "1.0.0"
       }
     },
     {

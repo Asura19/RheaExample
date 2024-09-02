@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "RheaExtension", targets: ["RheaExtension"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/reers/Rhea.git", branch: "feat/register_time_with_macro")
+        .package(url: "https://github.com/reers/Rhea.git", from: "1.0.0")
     ],
     targets: [
         .target(

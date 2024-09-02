@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "RheaExtension", path: "../RheaExtension"),
-        .package(url: "https://github.com/reers/Rhea.git", branch: "feat/register_time_with_macro")
+        .package(url: "https://github.com/reers/Rhea.git", from: "1.0.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
