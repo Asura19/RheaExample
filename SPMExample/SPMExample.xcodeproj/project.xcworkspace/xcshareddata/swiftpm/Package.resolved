@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/reers/Rhea.git",
       "state" : {
-        "revision" : "3f14ab52cb6d54e87a3698d79bc7e12c5519739c",
-        "version" : "1.0.0"
+        "revision" : "e185a199e60f483178efdaa29562dfdb5a3f4de6",
+        "version" : "1.0.1"
       }
     },
     {
