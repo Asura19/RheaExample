@@ -1,0 +1,30 @@
+PODS:
+  - Account (0.1.0):
+    - RheaExtension
+  - RheaExtension (0.1.0):
+    - RheaTime
+  - RheaTime (1.0.0)
+
+DEPENDENCIES:
+  - Account (from `Modules/Account/`)
+  - RheaExtension (from `Modules/RheaExtension/`)
+  - RheaTime (= 1.0.0)
+
+SPEC REPOS:
+  trunk:
+    - RheaTime
+
+EXTERNAL SOURCES:
+  Account:
+    :path: Modules/Account/
+  RheaExtension:
+    :path: Modules/RheaExtension/
+
+SPEC CHECKSUMS:
+  Account: 80456c5b636faf8afe21d8b455b225076e1252b7
+  RheaExtension: c477b07c8e777110bc825574e849c42dee157c3f
+  RheaTime: d17f002426b8a84d7e57c158480a965ce4ea3e95
+
+PODFILE CHECKSUM: d0255f19ee1c5a0b60732538a14d15453a4da3c5
+
+COCOAPODS: 1.15.2

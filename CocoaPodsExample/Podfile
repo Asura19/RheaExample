@@ -1,0 +1,27 @@
+use_frameworks!
+
+platform :ios, '13.0'
+
+target 'CocoaPodsExample_Example' do
+  pod 'RheaTime', '1.0.0'
+  pod 'RheaExtension', :path => 'Modules/RheaExtension/'
+  pod 'Account', :path => 'Modules/Account/'
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    rhea_dependency = target.dependencies.find { |d| ['RheaTime', 'RheaExtension'].include?(d.name) }
+    if rhea_dependency
+      puts "Adding Rhea Swift flags to target: #{target.name}"
+      target.build_configurations.each do |config|
+        config.build_settings['OTHER_SWIFT_FLAGS'] ||= ['$(inherited)']
+        unless config.build_settings['OTHER_SWIFT_FLAGS'].include?('-load-plugin-executable ${PODS_ROOT}/RheaTime/Sources/Resources/RheaTimeMacros#RheaTimeMacros')
+          config.build_settings['OTHER_SWIFT_FLAGS'] << '-load-plugin-executable ${PODS_ROOT}/RheaTime/Sources/Resources/RheaTimeMacros#RheaTimeMacros'
+        end
+        unless config.build_settings['OTHER_SWIFT_FLAGS'].include?('-enable-experimental-feature SymbolLinkageMarkers')
+          config.build_settings['OTHER_SWIFT_FLAGS'] << '-enable-experimental-feature SymbolLinkageMarkers'
+        end
+      end
+    end
+  end
+end
