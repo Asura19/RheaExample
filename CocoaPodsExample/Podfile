@@ -3,7 +3,6 @@ use_frameworks!
 platform :ios, '13.0'
 
 target 'CocoaPodsExample_Example' do
-  pod 'RheaTime', '1.0.0'
   pod 'RheaExtension', :path => 'Modules/RheaExtension/'
   pod 'Account', :path => 'Modules/Account/'
 end

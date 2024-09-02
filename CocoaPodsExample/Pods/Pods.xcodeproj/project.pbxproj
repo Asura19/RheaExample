@@ -596,6 +596,38 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		04E731CC730B322CC2C55E361C463CEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF4ED98F07B4B999CE8054754027052F /* RheaTime.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RheaTime/RheaTime-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RheaTime/RheaTime-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RheaTime/RheaTime.modulemap";
+				PRODUCT_MODULE_NAME = RheaTime;
+				PRODUCT_NAME = RheaTime;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		14AABA88F23A7FB86FACBBCCC3B16315 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF080FB11AA06C9F1410BDE82F7578C4 /* RheaExtension.debug.xcconfig */;
@@ -860,7 +892,7 @@
 			};
 			name = Release;
 		};
-		A970B199E9987A8DC31362FD04C9C1E2 /* Release */ = {
+		A9DEF44CD2699FD24A477914558C7DEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A0FCE4DAB4B478266E6BA36D237CED80 /* RheaTime.release.xcconfig */;
 			buildSettings = {
@@ -877,7 +909,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RheaTime/RheaTime-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RheaTime/RheaTime-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/RheaTime/RheaTime.modulemap";
 				PRODUCT_MODULE_NAME = RheaTime;
@@ -892,38 +924,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		AACCECC2DF3CA89F9A18EFE95607D8CF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF4ED98F07B4B999CE8054754027052F /* RheaTime.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/RheaTime/RheaTime-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RheaTime/RheaTime-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/RheaTime/RheaTime.modulemap";
-				PRODUCT_MODULE_NAME = RheaTime;
-				PRODUCT_NAME = RheaTime;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.10;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		B0A975A0783503CAF9F3070127D5F27B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1036,8 +1036,8 @@
 		F00D32EE2B5D7CE121D68DFE93B92B07 /* Build configuration list for PBXNativeTarget "RheaTime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AACCECC2DF3CA89F9A18EFE95607D8CF /* Debug */,
-				A970B199E9987A8DC31362FD04C9C1E2 /* Release */,
+				04E731CC730B322CC2C55E361C463CEA /* Debug */,
+				A9DEF44CD2699FD24A477914558C7DEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
