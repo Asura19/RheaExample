@@ -22,12 +22,6 @@ class ViewController: UIViewController {
         print("~~~~ load nested in main")
     })
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Rhea.trigger(event: .homePageDidAppear, param: self)

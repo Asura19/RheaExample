@@ -13,8 +13,7 @@ let package = Package(
             targets: ["Account"]),
     ],
     dependencies: [
-        .package(name: "RheaExtension", path: "../RheaExtension"),
-        .package(url: "https://github.com/reers/Rhea.git", from: "1.0.1")
+        .package(name: "RheaExtension", path: "../RheaExtension")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -22,8 +21,7 @@ let package = Package(
         .target(
             name: "Account",
             dependencies: [
-                .product(name: "RheaExtension", package: "RheaExtension"),
-                .product(name: "RheaTime", package: "Rhea")
+                .product(name: "RheaExtension", package: "RheaExtension")
             ]
         ),
     ]
