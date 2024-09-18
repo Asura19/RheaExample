@@ -38,5 +38,6 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'RheaTime', '1.0.1'
+  s.dependency 'RheaTime', '1.0.3'
+
 end

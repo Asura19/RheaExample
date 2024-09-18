@@ -13,13 +13,15 @@ post_install do |installer|
     if rhea_dependency
       puts "Adding Rhea Swift flags to target: #{target.name}"
       target.build_configurations.each do |config|
-        config.build_settings['OTHER_SWIFT_FLAGS'] ||= ['$(inherited)']
-        unless config.build_settings['OTHER_SWIFT_FLAGS'].include?('-load-plugin-executable ${PODS_ROOT}/RheaTime/Sources/Resources/RheaTimeMacros#RheaTimeMacros')
-          config.build_settings['OTHER_SWIFT_FLAGS'] << '-load-plugin-executable ${PODS_ROOT}/RheaTime/Sources/Resources/RheaTimeMacros#RheaTimeMacros'
+        swift_flags = config.build_settings['OTHER_SWIFT_FLAGS'] ||= ['$(inherited)']
+        
+        plugin_flag = '-Xfrontend -load-plugin-executable -Xfrontend ${PODS_ROOT}/RheaTime/Sources/Resources/RheaTimeMacros#RheaTimeMacros'
+        
+        unless swift_flags.join(' ').include?(plugin_flag)
+          swift_flags.concat(plugin_flag.split)
         end
-        unless config.build_settings['OTHER_SWIFT_FLAGS'].include?('-enable-experimental-feature SymbolLinkageMarkers')
-          config.build_settings['OTHER_SWIFT_FLAGS'] << '-enable-experimental-feature SymbolLinkageMarkers'
-        end
+        
+        config.build_settings['OTHER_SWIFT_FLAGS'] = swift_flags
       end
     end
   end

@@ -9,7 +9,7 @@
 import UIKit
 import RheaExtension
 
-#rhea(time: .homePageDidAppear, func: { context in
+#rhea(time: "homePageDidAppear", func: { context in
     print("~~~~ homepageDidAppear in main")
 })
 
