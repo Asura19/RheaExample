@@ -8,6 +8,10 @@
 import UIKit
 import RheaExtension
 
+#rhea(time: .load, priority: .veryHigh, async: true, func: { _ in
+    print("~~~~~ is main thread: \(Thread.isMainThread)")
+})
+
 #rhea(time: "homePageDidAppear", func: { context in
     print("~~~~ homepageDidAppear in main")
 })

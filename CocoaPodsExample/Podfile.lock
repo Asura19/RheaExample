@@ -2,15 +2,15 @@ PODS:
   - Account (0.1.0):
     - RheaExtension
   - RheaExtension (0.1.0):
-    - RheaTime (= 1.0.3)
-  - RheaTime (1.0.3)
+    - RheaTime (= 1.0.5)
+  - RheaTime (1.0.5)
 
 DEPENDENCIES:
   - Account (from `Modules/Account/`)
   - RheaExtension (from `Modules/RheaExtension/`)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - RheaTime
 
 EXTERNAL SOURCES:
@@ -21,9 +21,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Account: 80456c5b636faf8afe21d8b455b225076e1252b7
-  RheaExtension: 870f2b39a01b5c1d5ae77b60b31b64501541bdea
-  RheaTime: 69f5c12dd629f52005ec689723f511665edc0c50
+  RheaExtension: 3ddfe2a02bea3ec74f63edead88973db67a97207
+  RheaTime: 08634a38450ebb2e952a0adda09ee21d49a5e178
 
-PODFILE CHECKSUM: a901afd55a9a9607e0f04dc9a04317eab564d064
+PODFILE CHECKSUM: 818e43eb0938decac6ba270c5b25615c99367e48
 
 COCOAPODS: 1.15.2

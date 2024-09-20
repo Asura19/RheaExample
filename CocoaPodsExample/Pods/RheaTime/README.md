@@ -22,8 +22,9 @@ import RheaExtension
     print("~~~~ customEvent in main")
 })
 
-#rhea(time: .homePageDidAppear, func: { context in
-    print("~~~~ homepageDidAppear in main")
+#rhea(time: .homePageDidAppear, async: true, func: { context in
+    // This will run on a background thread
+    print("~~~~ homepageDidAppear")
 })
 
 #rhea(time: .premain, func: { _ in
@@ -44,10 +45,11 @@ class ViewController: UIViewController {
 ```
 框架内提供了三个回调时机, 分别是
 1. OC + load
-2. premain
+2. constructor (premain)
 3. appDidFinishLaunching
 
-另外用户可以自定义时机和触发, 可以配置同时机的执行优先级, 以及是否可以重复执行
+另外用户可以自定义时机和触发, 可以配置同时机的执行优先级, 以及是否可以重复执行.
+⚠️⚠️⚠️ 但需要注意的是, 自定义时机的变量名要和其 rawValue 的 String 完全相同, 否则 Swift Macro 无法正确处理 
 
 ```swift
 /// Registers a callback function for a specific Rhea event.
@@ -67,13 +69,21 @@ class ViewController: UIViewController {
 ///   - repeatable: A boolean flag indicating whether the callback can be triggered multiple times.
 ///                 If `false` (default), the callback will only be executed once.
 ///                 If `true`, the callback can be re-triggered on subsequent event occurrences.
+///   - async: A boolean flag indicating whether the callback should be executed asynchronously.
+///            If `false` (default), the callback will be executed on the main thread.
+///            If `true`, the callback will be executed on a background thread. Note that when
+///            `async` is `true`, the execution order based on `priority` may not be guaranteed.
+///            Even when `async` is set to `false`, users can still choose to dispatch their tasks
+///            to a background queue within the callback function if needed. This provides
+///            flexibility for handling both quick, main thread operations and longer-running
+///            background tasks.
 ///   - func: The callback function of type `RheaFunction`. This function receives a `RheaContext`
 ///           parameter, which includes `launchOptions` and an optional `Any?` parameter.
 ///
 /// - Note: When triggering an event externally using `Rhea.trigger(event:param:)`, you can include
-///              an additional parameter that will be passed to the callback via the `RheaContext`.
+///         an additional parameter that will be passed to the callback via the `RheaContext`.
 ///
-/// ```
+/// ```swift
 /// #rhea(time: .load, priority: .veryLow, repeatable: true, func: { _ in
 ///     print("~~~~ load in Account Module")
 /// })
@@ -86,6 +96,19 @@ class ViewController: UIViewController {
 /// #rhea(time: "ACustomEventString", func: { _ in
 ///     print("~~~~ custom event")
 /// })
+///
+/// // Example of using async execution
+/// #rhea(time: .load, async: true, func: { _ in
+///     // This will run on a background thread
+///     performHeavyTask()
+/// })
+///
+/// // Example of manually dispatching to background queue when async is false
+/// #rhea(time: .load, func: { _ in
+///     DispatchQueue.global().async {
+///         // Perform background task
+///     }
+/// })
 /// ```
 /// - Note: ⚠️⚠️⚠️ When extending ``RheaEvent`` with static constants, ensure that
 ///   the constant name exactly matches the string literal value. This practice
@@ -96,8 +119,10 @@ public macro rhea(
     time: RheaEvent,
     priority: RheaPriority = .normal,
     repeatable: Bool = false,
+    async: Bool = false,
     func: RheaFunction
 ) = #externalMacro(module: "RheaTimeMacros", type: "WriteTimeToSectionMacro")
+
 ```
 
 ## 接入工程
@@ -109,6 +134,7 @@ public macro rhea(
 extension RheaEvent {
     public static let homePageDidAppear: RheaEvent = "homePageDidAppear"
     public static let registerRoute: RheaEvent = "registerRoute"
+    public static let didEnterBackground: RheaEvent = "didEnterBackground"
 }
 ```
 所以推荐的方式是, 将本框架再封装一层, 如命名为 RheaExtension
@@ -118,6 +144,25 @@ extension RheaEvent {
 RheaExtension
      ↓
   RheaTime
+```
+
+另外, RheaExtension 中除了可以自定义事件名, 还可以封装一些时机事件的业务逻辑
+```
+#rhea(time: .appDidFinishLaunching, func: { _ in
+    NotificationCenter.default.addObserver(
+        forName: UIApplication.didEnterBackgroundNotification,
+        object: nil,
+        queue: .main
+    ) { _ in
+        Rhea.trigger(event: .didEnterBackground)
+    }
+})
+```
+外部使用
+```
+#rhea(time: .didEnterBackground, repeatable: true, func: { _ in
+    print("~~~~ app did enter background")
+})
 ```
 
 ### Swift Package Manager
@@ -130,7 +175,7 @@ let package = Package(
         .library(name: "RheaExtension", targets: ["RheaExtension"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/reers/Rhea.git", from: "1.0.3")
+        .package(url: "https://github.com/reers/Rhea.git", from: "1.0.5")
     ],
     targets: [
         .target(
@@ -149,6 +194,7 @@ let package = Package(
 extension RheaEvent {
     public static let homePageDidAppear: RheaEvent = "homePageDidAppear"
     public static let registerRoute: RheaEvent = "registerRoute"
+    public static let didEnterBackground: RheaEvent = "didEnterBackground"
 }
 ```
 
@@ -216,7 +262,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/bjwoodman/RheaExtension.git', :tag => s.version.to_s }
   s.ios.deployment_target = '13.0'
   s.source_files = 'RheaExtension/Classes/**/*'
-  s.dependency 'RheaTime', '1.0.3'
+  s.dependency 'RheaTime', '1.0.5'
 end
 ```
 
