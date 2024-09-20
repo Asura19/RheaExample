@@ -17,6 +17,10 @@ import RheaExtension
     Rhea.trigger(event: .registerRoute)
 })
 
+#rhea(time: .didEnterBackground, repeatable: true, func: { _ in
+    print("~~~~ app did enter background")
+})
+
 class ViewController: UIViewController {
     
     #rhea(time: .load, func: { _ in
