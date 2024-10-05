@@ -22,7 +22,8 @@ let package = Package(
             name: "Account",
             dependencies: [
                 .product(name: "RheaExtension", package: "RheaExtension")
-            ]
+            ],
+            swiftSettings: [.enableExperimentalFeature("SymbolLinkageMarkers")]
         ),
     ]
 )
