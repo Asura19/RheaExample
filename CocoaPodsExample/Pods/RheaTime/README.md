@@ -3,7 +3,7 @@
 一个用于触发各种时机的框架. 灵感来自字节内部的框架 Gaia, 但是以不同的方式实现的.
 在希腊神话中, Rhea 是 Gaia 的女儿, 本框架也因此得名.
 
-Swift 5.10 之后, 支持了`@_used` `@_section` 可以将 section 写入数组, 再结合 Swift Macro, 就可以实现 OC 时代各种解耦和的框架了. 本框架也采用此方式进行了全面重构.
+Swift 5.10 之后, 支持了`@_used` `@_section` 可以将数据写入 section, 再结合 Swift Macro, 就可以实现 OC 时代各种解耦和的框架了. 本框架也采用此方式进行了全面重构.
 
 ## 要求
 XCode 16.1 +
@@ -175,7 +175,7 @@ let package = Package(
         .library(name: "RheaExtension", targets: ["RheaExtension"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/reers/Rhea.git", from: "1.0.5")
+        .package(url: "https://github.com/reers/Rhea.git", from: "1.0.6")
     ],
     targets: [
         .target(
@@ -262,7 +262,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/bjwoodman/RheaExtension.git', :tag => s.version.to_s }
   s.ios.deployment_target = '13.0'
   s.source_files = 'RheaExtension/Classes/**/*'
-  s.dependency 'RheaTime', '1.0.5'
+  s.dependency 'RheaTime', '1.0.6'
 end
 ```
 

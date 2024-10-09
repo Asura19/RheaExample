@@ -2,8 +2,8 @@ PODS:
   - Account (0.1.0):
     - RheaExtension
   - RheaExtension (0.1.0):
-    - RheaTime (= 1.0.5)
-  - RheaTime (1.0.5)
+    - RheaTime (= 1.0.6)
+  - RheaTime (1.0.6)
 
 DEPENDENCIES:
   - Account (from `Modules/Account/`)
@@ -21,8 +21,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Account: 80456c5b636faf8afe21d8b455b225076e1252b7
-  RheaExtension: 3ddfe2a02bea3ec74f63edead88973db67a97207
-  RheaTime: 08634a38450ebb2e952a0adda09ee21d49a5e178
+  RheaExtension: a367b2fa88ac6692eca65889bad344f5cc1f8a23
+  RheaTime: 714428fd35d28deab81be88aaac16e5c3715c10b
 
 PODFILE CHECKSUM: 818e43eb0938decac6ba270c5b25615c99367e48
 
