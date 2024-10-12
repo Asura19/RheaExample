@@ -10,8 +10,7 @@ let package = Package(
         .library(name: "RheaExtension", targets: ["RheaExtension"]),
     ],
     dependencies: [
-//        .package(url: "https://github.com/reers/Rhea.git", from: "1.0.5")
-        .package(url: "https://github.com/reers/Rhea.git", branch: "fix/enable_exp_feature")
+        .package(url: "https://github.com/reers/Rhea.git", from: "1.0.7")
     ],
     targets: [
         .target(
@@ -19,6 +18,7 @@ let package = Package(
             dependencies: [
                 .product(name: "RheaTime", package: "Rhea")
             ],
+            // 此处添加开启实验 feature
             swiftSettings: [.enableExperimentalFeature("SymbolLinkageMarkers")]
         ),
     ]
