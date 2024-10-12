@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "RheaExtension", targets: ["RheaExtension"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/reers/Rhea.git", from: "1.0.7")
+        .package(url: "https://github.com/reers/Rhea.git", from: "1.0.8")
     ],
     targets: [
         .target(

@@ -21,7 +21,7 @@
   "source_files": "RheaExtension/Classes/**/*",
   "dependencies": {
     "RheaTime": [
-      "1.0.7"
+      "1.0.8"
     ]
   },
   "pod_target_xcconfig": {

@@ -1,0 +1,24 @@
+{
+  "originHash" : "cf2fb04102862b90fd7b0cda5f2c8483164557d0d94c05e0d066f1eed292399f",
+  "pins" : [
+    {
+      "identity" : "rhea",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/reers/Rhea.git",
+      "state" : {
+        "revision" : "e73cba76c470de56ec9bba06246e73c1a43136a4",
+        "version" : "1.0.8"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "0687f71944021d616d34d922343dcef086855920",
+        "version" : "600.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}

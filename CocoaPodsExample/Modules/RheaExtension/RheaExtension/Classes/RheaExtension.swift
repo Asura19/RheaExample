@@ -9,6 +9,7 @@ extension RheaEvent {
 }
 
 #rhea(time: .appDidFinishLaunching, func: { _ in
+    print("~~~~ appDidFinishLaunching in RheaExtension Module")
     NotificationCenter.default.addObserver(
         forName: NSNotification.Name.UIApplicationDidEnterBackground,
         object: nil,
