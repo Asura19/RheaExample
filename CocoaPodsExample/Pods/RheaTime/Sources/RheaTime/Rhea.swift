@@ -7,12 +7,16 @@
 
 import Foundation
 import MachO
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 #endif
 
 #if canImport(AppKit)
 import AppKit
+#endif
+
+#if canImport(WatchKit)
+import WatchKit
 #endif
 
 /// Rhea: A dynamic event-driven framework for iOS application lifecycle management and app-wide decoupling.
@@ -150,7 +154,7 @@ public class Rhea: NSObject {
     }
 
     private static func registerNotifications() {
-        #if canImport(UIKit)
+        #if canImport(UIKit) && !os(watchOS)
         NotificationCenter.default.addObserver(
             forName: UIApplication.didFinishLaunchingNotification,
             object: nil,
@@ -171,6 +175,17 @@ public class Rhea: NSObject {
         ) { notification in
             let userInfo = notification.userInfo
             let context = RheaContext(param: userInfo)
+            callbackForTime(RheaEvent.appDidFinishLaunching.rawValue, context: context)
+        }
+        #endif
+        
+        #if canImport(WatchKit)
+        NotificationCenter.default.addObserver(
+            forName: WKApplication.didFinishLaunchingNotification,
+            object: nil,
+            queue: .main
+        ) { _ in
+            let context = RheaContext()
             callbackForTime(RheaEvent.appDidFinishLaunching.rawValue, context: context)
         }
         #endif

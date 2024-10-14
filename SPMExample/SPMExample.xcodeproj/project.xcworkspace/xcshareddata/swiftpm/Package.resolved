@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/reers/Rhea.git",
       "state" : {
-        "revision" : "e73cba76c470de56ec9bba06246e73c1a43136a4",
-        "version" : "1.0.8"
+        "revision" : "319dca0c3ba3bd44e83efc0da123d42ad9988d32",
+        "version" : "1.1.0"
       }
     },
     {
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-syntax.git",
       "state" : {
-        "revision" : "cb53fa1bd3219b0b23ded7dfdd3b2baff266fd25",
-        "version" : "600.0.0"
+        "revision" : "0687f71944021d616d34d922343dcef086855920",
+        "version" : "600.0.1"
       }
     }
   ],
