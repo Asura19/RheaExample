@@ -24,6 +24,14 @@ import RheaExtension
     print("~~~~ app did enter background")
 })
 
+#load(func: { _ in
+    print("it will not work when macro expansion contains another macro, maybe swift-syntax bug")
+})
+
+#rhea(time: .load, func: { _ in
+    print("22222 it's a rhea extension macro")
+})
+
 class ViewController: UIViewController {
     
     #rhea(time: .load, func: { _ in
