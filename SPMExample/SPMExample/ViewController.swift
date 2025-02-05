@@ -32,11 +32,23 @@ import RheaExtension
     print("22222 it's a rhea extension macro")
 })
 
+#rhea(time: .load, func: { _ in
+    print("22222 it's a rhea extension macro")
+})
+
+#rhea(time: .load) { _ in
+    print("load with trailing closure")
+}
+
 class ViewController: UIViewController {
-    
+    var name: String?
     #rhea(time: .load, func: { _ in
         print("~~~~ load nested in main")
     })
+    
+    #rhea(time: .homePageDidAppear) { context in
+        print("appDidFinishLaunching with trailing closure \(context.param)")
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

@@ -21,6 +21,10 @@ import RheaExtension
     print("~~~~ app did enter background")
 })
 
+#rhea(time: .load) { _ in
+    print("load with trailing closure")
+}
+
 class ViewController: UIViewController {
     
     #rhea(time: .load, func: { _ in
@@ -32,7 +36,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    #rhea(time: .load, priority: .high) { _ in
+        print("load with trailing closure 222222")
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Rhea.trigger(event: .homePageDidAppear, param: self)
