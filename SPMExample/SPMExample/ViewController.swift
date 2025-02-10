@@ -24,24 +24,29 @@ import RheaExtension
     print("~~~~ app did enter background")
 })
 
-#load(func: { _ in
-    print("it will not work when macro expansion contains another macro, maybe swift-syntax bug")
-})
-
-#rhea(time: .load, func: { _ in
-    print("22222 it's a rhea extension macro")
-})
-
-#rhea(time: .load, func: { _ in
-    print("22222 it's a rhea extension macro")
-})
+#load {
+    print("~~~~ load 11111")
+}
 
 #rhea(time: .load) { _ in
     print("load with trailing closure")
 }
 
 class ViewController: UIViewController {
+    #load {
+        print("~~~~ load 2222")
+    }
+    
+    #premain {
+        print("~~~~ premain 2222")
+    }
+    
+    #appDidFinishLaunching {
+        print("~~~~ appDidFinishLaunching 2222")
+    }
+    
     var name: String?
+    
     #rhea(time: .load, func: { _ in
         print("~~~~ load nested in main")
     })

@@ -18,7 +18,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-syntax.git", from: "600.0.0"),
-        .package(url: "https://github.com/reers/Rhea.git", from: "1.2.0")
+        .package(url: "https://github.com/reers/Rhea.git", from: "1.2.2")
     ],
     targets: [
         .macro(

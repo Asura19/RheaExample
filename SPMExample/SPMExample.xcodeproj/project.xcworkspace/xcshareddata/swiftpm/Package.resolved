@@ -6,8 +6,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/reers/Rhea.git",
       "state" : {
-        "revision" : "5ec51df754b3ecd032524f5c2d823671a7a23ae5",
-        "version" : "1.2.0"
+        "revision" : "7ff09c6fa341c24884a4e6f4d03df99e706c5145",
+        "version" : "1.2.2"
+      }
+    },
+    {
+      "identity" : "sectionreader",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/reers/SectionReader.git",
+      "state" : {
+        "revision" : "aa5fd9a6a60ed533d41dc8836713c3775a19e4e0",
+        "version" : "1.0.0"
       }
     },
     {
